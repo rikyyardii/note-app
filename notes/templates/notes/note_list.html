@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daftar Catatan</title>
+    <style>
+      /* Gaya CSS untuk body */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Gaya CSS untuk header */
+      header {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* Gaya CSS untuk daftar catatan */
+      .note-list {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      /* Gaya CSS untuk item catatan */
+      .note {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        border-radius: 5px;
+        position: relative; /* Menambahkan posisi relatif untuk tombol edit/hapus */
+      }
+
+      /* Gaya CSS untuk tombol edit catatan */
+      .edit-note-button {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        position: absolute;
+        top: 5px;
+        right: 70px; /* Menyesuaikan posisi tombol edit */
+      }
+
+      /* Gaya CSS untuk tombol hapus catatan */
+      .delete-note-button {
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        position: absolute;
+        top: 5px;
+        right: 10px; /* Menyesuaikan posisi tombol hapus */
+      }
+
+      /* Gaya CSS untuk tombol tambah catatan */
+      .add-note-button {
+        display: block;
+        margin-top: 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      /* Gaya CSS untuk tombol tambah catatan saat dihover */
+      .add-note-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Daftar Catatan</h1>
+    </header>
+    <div class="note-list">
+      <!-- Loop melalui catatan-catatan Anda di sini -->
+      {% for note in notes %}
+      <div class="note">
+        <h2>{{ note.title }}</h2>
+        <p>{{ note.content }}</p>
+        <a href="{% url 'note_update' note.pk %}">Edit Catatan</a>
+        <a href="{% url 'note_delete' note.pk %}">Hapus Catatan</a>
+      </div>
+      {% endfor %}
+      <a class="add-note-button" href="{% url 'note_create' %}">Tambah Catatan</a>
+    </div>
+  </body>
+</html>

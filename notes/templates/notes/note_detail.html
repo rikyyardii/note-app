@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detail Catatan</title>
+    <style>
+      /* Gaya CSS untuk body */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Gaya CSS untuk container catatan */
+      .note-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      /* Gaya CSS untuk judul catatan */
+      h1 {
+        margin: 0 0 10px;
+      }
+
+      /* Gaya CSS untuk isi catatan */
+      p {
+        margin: 0 0 20px;
+      }
+
+      /* Gaya CSS untuk tombol Kembali */
+      .back-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      /* Gaya CSS untuk tombol Kembali saat dihover */
+      .back-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="note-container">
+      <h1>{{ note.title }}</h1>
+      <p>{{ note.content }}</p>
+      <a class="back-button" href="{% url 'note_list' %}">Kembali</a>
+    </div>
+  </body>
+</html>

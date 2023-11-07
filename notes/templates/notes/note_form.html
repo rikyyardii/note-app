@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Catatan</title>
+    <style>
+      /* Gaya CSS untuk body */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Gaya CSS untuk form catatan */
+      .note-form {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      /* Gaya CSS untuk label dan input */
+      label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      /* Gaya CSS untuk tombol Simpan */
+      .save-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      /* Gaya CSS untuk tombol Simpan saat dihover */
+      .save-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="note-form">
+      <h1>Form Catatan</h1>
+      <form method="post">
+        {% csrf_token %}
+        <label for="title">Judul:</label>
+        <input type="text" id="title" name="title" required />
+        <label for="content">Isi:</label>
+        <textarea id="content" name="content" required></textarea>
+        <button type="submit" class="save-button">Simpan</button>
+      </form>
+    </div>
+  </body>
+</html>
